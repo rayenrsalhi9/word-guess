@@ -1,11 +1,11 @@
 export const languages = [
     {
-        name: "Html",
+        name: "HTML",
         backgroundColor: "#E2680F",
         color: "#F9F4DA",
     },
     {
-        name: "Css",
+        name: "CSS",
         backgroundColor: "#328AF1",
         color: "#F9F4DA",
     },

@@ -62,6 +62,11 @@ section.status {
     align-items: center;
 }
 
+section.status.farewell {
+    background-color: #7A5EA7;
+    border: 2px dashed #323232;
+}
+
 section.status.won {
     background: #10A95B;
 }

@@ -2,6 +2,7 @@ import { useState } from "react"
 import clsx from "clsx"
 import ReactConfetti from "react-confetti"
 import { languages } from "./languages"
+import { getFarewellText } from "./farewellMsgs"
 
 export default function App() {
 
@@ -17,7 +18,8 @@ export default function App() {
     const statusClassname = clsx({
         'status': true,
         'won': isGameWon,
-        'lost': isGameLost
+        'lost': isGameLost,
+        'farewell': !isGameOver && wrongGuessCount > 0 && !currentWord.split('').includes(guess[guess.length - 1])
     })
 
     const languageEl = languages.map((el, index) => {
@@ -70,6 +72,32 @@ export default function App() {
         )
     })
 
+    function generateStatusText() {
+        if (!isGameOver) {
+            if (wrongGuessCount > 0 && !currentWord.split('').includes(guess[guess.length - 1])) {
+                return (
+                    <p>
+                        { getFarewellText(languages[wrongGuessCount - 1].name) }
+                    </p>
+                )
+            }
+        } else if (isGameWon) {
+            return (
+                <>
+                    <h2>You win!</h2>
+                    <p>Well done! 🎉</p>
+                </>
+            )
+        } else if (isGameLost) {
+            return (
+                <>
+                    <h2>Game over!</h2>
+                    <p>You lose! Better start learning Assembly 😭</p>
+                </>
+            )
+        } else return null
+    }
+
     function handleGuess(value) {
         setGuess(prev => prev.includes(value) ? prev : [...prev, value])
     }
@@ -87,19 +115,7 @@ export default function App() {
             </header>
 
             <section className={statusClassname}>
-                <h2>
-                    {
-                        isGameWon ? 'You win!' : 
-                        isGameLost ? 'Game over!' : ''
-                    }
-                </h2>
-                <p>
-                    {
-                        isGameWon ? 'Well done! 🎉' :
-                        isGameLost ? 'You lose! Better start learning Assembly 😭' :
-                        ''
-                    }
-                </p>
+                { generateStatusText() }
             </section>
 
             <section className="languages">{ languageEl }</section>
