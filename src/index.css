@@ -10,7 +10,9 @@
 html, body {
     min-height: 100vh;
     background-color: #282726;
-    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .container {
@@ -19,8 +21,6 @@ html, body {
     min-height: 100vh;
     margin: 0 auto;
     padding: 2vh 1rem;
-    display: flex;
-    flex-direction: column;
 }
 
 header {
