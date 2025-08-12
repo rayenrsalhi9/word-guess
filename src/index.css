@@ -49,12 +49,23 @@ header p {
 }
 
 section.status {
-    text-align: center;
-    background: #10A95B;
     color: #F9F4DA;
-    padding: 2vh 1rem;
+    padding: 2em 1em;
     margin-top: 1vh;
     border-radius: 6px;
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+section.status.won {
+    background: #10A95B;
+}
+
+section.status.lost {
+    background: #BA2A2A;
 }
 
 section.status h2 {

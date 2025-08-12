@@ -14,6 +14,12 @@ export default function App() {
     const isGameWon = currentWord.split('').every(el => guess.includes(el))
     const isGameOver = isGameLost || isGameWon
 
+    const statusClassname = clsx({
+        'status': true,
+        'won': isGameWon,
+        'lost': isGameLost
+    })
+
     const languageEl = languages.map((el, index) => {
 
         const styles = {
@@ -76,9 +82,20 @@ export default function App() {
                 <p>Guess the word in under 8 attempts to keep the programming world safe from Assembly!</p>
             </header>
 
-            <section className="status">
-                <h2>You win!</h2>
-                <p>Well done! 🎉</p>
+            <section className={statusClassname}>
+                <h2>
+                    {
+                        isGameWon ? 'You win!' : 
+                        isGameLost ? 'Game over!' : ''
+                    }
+                </h2>
+                <p>
+                    {
+                        isGameWon ? 'Well done! 🎉' :
+                        isGameLost ? 'You lose! Better start learning Assembly 😭' :
+                        ''
+                    }
+                </p>
             </section>
 
             <section className="languages">{ languageEl }</section>
