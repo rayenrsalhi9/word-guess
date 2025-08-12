@@ -35,6 +35,7 @@ export default function App() {
     const keyboard = alphabet.split('').map(el => {
 
         const classname = clsx({
+            'disabled': guess.includes(el),
             'correct': guess.includes(el) && currentWord.split('').includes(el),
             'incorrect': guess.includes(el) && !currentWord.split('').includes(el)
         })

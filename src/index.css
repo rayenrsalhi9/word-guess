@@ -133,22 +133,19 @@ section.status p {
     transition: .6s;
 }
 
-.keyboard button.correct {
+.keyboard button.disabled {
     opacity: .8;
-    background-color: #10A95B;
     cursor: not-allowed;
     transform: scale(.9);
+}
+
+.keyboard button.correct { 
+    background-color: #10A95B;
 }
 
 .keyboard button.incorrect {
-    opacity: .8;
     background-color: #EC5D49;
-    cursor: not-allowed;
-    transform: scale(.9);
 }
-
-
-
 
 button.new-game {
     display: block;
