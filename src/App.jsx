@@ -10,6 +10,8 @@ export default function App() {
 
     const wrongGuessCount = guess.filter(el => !currentWord.split('').includes(el)).length
 
+    const isGameOver = wrongGuessCount === languages.length
+
     const languageEl = languages.map((el, index) => {
 
         const styles = {
@@ -83,7 +85,7 @@ export default function App() {
 
             <section className="keyboard">{ keyboard }</section>
 
-            <button className="new-game">New Game</button>
+            { isGameOver ? <button className="new-game">New Game</button> : null }
         </main>
     )
 }
