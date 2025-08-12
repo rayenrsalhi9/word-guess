@@ -74,6 +74,10 @@ export default function App() {
         setGuess(prev => prev.includes(value) ? prev : [...prev, value])
     }
 
+    function playNewGame() {
+        setGuess([])
+    }
+
     return (
         <main className="container">
             
@@ -110,7 +114,7 @@ export default function App() {
 
             {
                 isGameOver ? 
-                <button className="new-game">New Game</button> : 
+                <button className="new-game" onClick={playNewGame}>New Game</button> : 
                 null 
             }
         </main>
