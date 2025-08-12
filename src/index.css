@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Hanken Grotesk', sans-serif;
+}
+
+body {
+    background-color: #282726;
+}
+
+.container {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 2em 1em;
+}
+
+header {
+    text-align: center;
+}
+
+header h1 {
+    color: #F9F4DA;
+    font-weight: 500;
+    font-size: 1.5rem;
+}
+
+header p {
+    color: #8E8E8E;
+    width: 80%;
+    margin: .5em auto 0;
+}
+
+section.status {
+    text-align: center;
+    background: #10A95B;
+    color: #F9F4DA;
+    padding: .75em 1em;
+    margin-top: 1em;
+    border-radius: 6px;
+}
+
+section.status h2 {
+    font-weight: 500;
+    font-size: 1.25rem;
+}
+
+section.status p {
+    font-size: 1.125rem;
+}
+
+.languages {
+    width: 60%;
+    margin: 1.5em auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: .25em;
+}
+
+.languages .language{
+    display: inline-block;
+    padding: .25em .5em;
+    border-radius: 6px;
+}
+
+.letters {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1em auto;
+}
+
+.letters span {
+    text-transform: uppercase;
+    font-size: 1.25em;
+    text-align: center;
+
+    background-color: #232323;
+    color: #F9F4DA;
+    border-bottom: 2px solid #F9F4DA;
+
+    padding: .75em;
+    margin: 0 .2em;
+
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.keyboard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: .5em;
+
+    width: 80%;
+    margin: 2em auto 0;
+}
+
+.keyboard button {
+    border: 1px solid #D7D7D7;
+    border-radius: 4px;
+
+    background-color: #FCBA29;
+    color: #1E1E1E;
+
+    text-transform: uppercase;
+    font-size: 1.125rem;
+    font-weight: 600;
+    
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: .3em;
+
+    cursor: pointer;
+    transition: .6s;
+}
+
+.keyboard button:hover {
+    background-color: #d79912;
+}
+
+button.new-game {
+    display: block;
+    margin: 2em auto 0;
+    background-color: #11B5E5;
+    border: 1px solid #D7D7D7;
+    border-radius: 4px;
+    padding: 1em 2em;
+    font-size: 1.125rem;
+    cursor: pointer;
+    transition: .6s ease;
+}
+
+button.new-game:hover {
+    background-color: #1099c3;
+}
