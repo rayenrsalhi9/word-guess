@@ -8,7 +8,7 @@
 }
 
 html, body {
-    height: 100vh;
+    min-height: 100vh;
     background-color: #282726;
     overflow: hidden;
 }
@@ -16,7 +16,7 @@ html, body {
 .container {
     width: 100%;
     max-width: 700px;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0 auto;
     padding: 2vh 1rem;
     display: flex;
