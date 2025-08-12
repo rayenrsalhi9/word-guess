@@ -26,22 +26,11 @@ export default function App() {
         )
     })
 
-    const wordLetters = currentWord.split('').map((el, index) => {
-
-        const classname = clsx({
-            'hidden': currentWord.includes(el) && !guess.includes(el)
-        })
-
-        return (
-            <span 
-                key={index} 
-                className={classname}
-            >
-                {el}
-            </span>
-        )
-
-    })
+    const wordLetters = currentWord.split('').map((el, index) => (
+        <span key={index}>
+            {currentWord.includes(el) && !guess.includes(el) ? '' : el}
+        </span>
+    ))
 
     const alphabet = "abcdefghijklmnopqrstuvwxyz"
 
