@@ -1,8 +1,11 @@
 import { useState } from "react"
+import clsx from "clsx"
 import { languages } from "./languages"
 
 
 export default function App() {
+
+    console.log('hi')
 
     const [currentWord, setCurrentWord] = useState('react')
     const [guess, setGuess] = useState([])
@@ -29,10 +32,26 @@ export default function App() {
 
     const alphabet = "abcdefghijklmnopqrstuvwxyz"
 
-    const keyboard = alphabet.split('').map(el => <button key={el} onClick={() => handleGuess(el)}>{el}</button>)
+    const keyboard = alphabet.split('').map(el => {
+
+        const classname = clsx({
+            'correct': guess.includes(el) && currentWord.split('').includes(el),
+            'incorrect': guess.includes(el) && !currentWord.split('').includes(el)
+        })
+
+        return (
+            <button 
+                key={el} 
+                className={classname}
+                onClick={!classname ? () => handleGuess(el) : null}
+            >
+                {el}
+            </button>
+        )
+    })
 
     function handleGuess(value) {
-        !guess.includes(value) ? setGuess(prev => [...prev, value]) : null
+        setGuess(prev => prev.includes(value) ? prev : [...prev, value])
     }
 
     return (
