@@ -1,7 +1,7 @@
 import { useState } from "react"
 import clsx from "clsx"
+import ReactConfetti from "react-confetti"
 import { languages } from "./languages"
-
 
 export default function App() {
 
@@ -11,6 +11,8 @@ export default function App() {
     const wrongGuessCount = guess.filter(el => !currentWord.split('').includes(el)).length
 
     const isGameOver = wrongGuessCount === languages.length
+
+    const isGameWon = currentWord.split('').every(el => guess.includes(el))
 
     const languageEl = languages.map((el, index) => {
 
@@ -85,7 +87,15 @@ export default function App() {
 
             <section className="keyboard">{ keyboard }</section>
 
-            { isGameOver ? <button className="new-game">New Game</button> : null }
+            {
+                isGameWon ? <ReactConfetti /> : null
+            }
+
+            {
+                isGameOver || isGameWon ? 
+                <button className="new-game">New Game</button> : 
+                null 
+            }
         </main>
     )
 }
