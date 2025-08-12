@@ -77,9 +77,29 @@ section.status p {
 }
 
 .languages .language {
+    position: relative;
     display: inline-block;
     padding: .5vh 1vw;
     border-radius: 6px;
+}
+
+.languages .language.lost {
+    opacity: .8;
+}
+
+.languages .language.lost::before {
+    content: "💀";
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    height: 100%;
+    width: 100%;
+    font-size: 0.85rem;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 .letters {

@@ -5,21 +5,28 @@ import { languages } from "./languages"
 
 export default function App() {
 
-    console.log('hi')
-
     const [currentWord, _] = useState('react')
     const [guess, setGuess] = useState([])
 
+    const wrongGuessCount = guess.filter(el => !currentWord.split('').includes(el)).length
+    console.log(wrongGuessCount)
+
     const languageEl = languages.map((el, index) => {
+
         const styles = {
             backgroundColor: el.backgroundColor,
             color: el.color
         }
+
+        const classname = clsx({
+            'language': true,
+            'lost': index + 1 <= wrongGuessCount
+        })
         return (
             <span 
                 key={index} 
                 style={styles}
-                className="language"
+                className={classname}
             >
                 {el.name}
             </span>
