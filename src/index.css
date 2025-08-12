@@ -105,6 +105,10 @@ section.status p {
     align-items: center;
 }
 
+.letters span.hidden {
+    color: transparent;
+}
+
 .keyboard {
     display: flex;
     justify-content: center;

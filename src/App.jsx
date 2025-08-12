@@ -7,7 +7,7 @@ export default function App() {
 
     console.log('hi')
 
-    const [currentWord, setCurrentWord] = useState('react')
+    const [currentWord, _] = useState('react')
     const [guess, setGuess] = useState([])
 
     const languageEl = languages.map((el, index) => {
@@ -27,7 +27,20 @@ export default function App() {
     })
 
     const wordLetters = currentWord.split('').map((el, index) => {
-        return <span key={index}>{el}</span>
+
+        const classname = clsx({
+            'hidden': currentWord.includes(el) && !guess.includes(el)
+        })
+
+        return (
+            <span 
+                key={index} 
+                className={classname}
+            >
+                {el}
+            </span>
+        )
+
     })
 
     const alphabet = "abcdefghijklmnopqrstuvwxyz"
