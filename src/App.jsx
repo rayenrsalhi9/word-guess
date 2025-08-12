@@ -28,7 +28,7 @@ export default function App() {
 
     const wordLetters = currentWord.split('').map((el, index) => (
         <span key={index}>
-            {currentWord.includes(el) && !guess.includes(el) ? '' : el}
+            { guess.includes(el) ? el : '' }
         </span>
     ))
 
