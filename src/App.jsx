@@ -5,6 +5,7 @@ import { languages } from "./languages"
 export default function App() {
 
     const [currentWord, setCurrentWord] = useState('react')
+    const [guess, setGuess] = useState([])
 
     const languageEl = languages.map((el, index) => {
         const styles = {
@@ -28,7 +29,11 @@ export default function App() {
 
     const alphabet = "abcdefghijklmnopqrstuvwxyz"
 
-    const keyboard = alphabet.split('').map(el => <button key={el}>{el}</button>)
+    const keyboard = alphabet.split('').map(el => <button key={el} onClick={() => handleGuess(el)}>{el}</button>)
+
+    function handleGuess(value) {
+        !guess.includes(value) ? setGuess(prev => [...prev, value]) : null
+    }
 
     return (
         <main className="container">
