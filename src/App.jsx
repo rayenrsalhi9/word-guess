@@ -10,9 +10,9 @@ export default function App() {
 
     const wrongGuessCount = guess.filter(el => !currentWord.split('').includes(el)).length
 
-    const isGameOver = wrongGuessCount >= languages.length
-
+    const isGameLost = wrongGuessCount >= languages.length
     const isGameWon = currentWord.split('').every(el => guess.includes(el))
+    const isGameOver = isGameLost || isGameWon
 
     const languageEl = languages.map((el, index) => {
 
@@ -92,7 +92,7 @@ export default function App() {
             }
 
             {
-                isGameOver || isGameWon ? 
+                isGameOver ? 
                 <button className="new-game">New Game</button> : 
                 null 
             }
