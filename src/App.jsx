@@ -10,7 +10,7 @@ export default function App() {
 
     const wrongGuessCount = guess.filter(el => !currentWord.split('').includes(el)).length
 
-    const isGameOver = wrongGuessCount === languages.length
+    const isGameOver = wrongGuessCount >= languages.length
 
     const isGameWon = currentWord.split('').every(el => guess.includes(el))
 
