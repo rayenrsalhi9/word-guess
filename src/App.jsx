@@ -9,7 +9,6 @@ export default function App() {
     const [guess, setGuess] = useState([])
 
     const wrongGuessCount = guess.filter(el => !currentWord.split('').includes(el)).length
-    console.log(wrongGuessCount)
 
     const languageEl = languages.map((el, index) => {
 
@@ -20,8 +19,9 @@ export default function App() {
 
         const classname = clsx({
             'language': true,
-            'lost': index + 1 <= wrongGuessCount
+            'lost': index < wrongGuessCount
         })
+
         return (
             <span 
                 key={index} 
