@@ -191,7 +191,7 @@ button.new-game {
     background-color: #11B5E5;
     border: 1px solid #D7D7D7;
     border-radius: 4px;
-    padding: clamp(0.8em, 2vh, 1em) clamp(1.5em, 4vw, 2em);
+    padding: clamp(0.8em, 2vh, 5em) clamp(1.5em, 4vw, 6em);
     font-size: clamp(1rem, 3vw, 1.125rem);
     font-weight: 600;
     cursor: pointer;
