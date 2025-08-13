@@ -67,6 +67,8 @@ export default function App() {
                 className={classname}
                 onClick={() => handleGuess(el)}
                 disabled={isGameOver}
+                aria-disabled={guess.includes(el)}
+                aria-label={`letter ${el}`}
             >
                 {el}
             </button>
@@ -100,7 +102,6 @@ export default function App() {
     }
 
     function handleGuess(value) {
-        console.log('event')
         setGuess(prev => prev.includes(value) ? prev : [...prev, value])
     }
 
@@ -116,13 +117,35 @@ export default function App() {
                 <p>Guess the word in under 8 attempts to keep the programming world safe from Assembly!</p>
             </header>
 
-            <section className={statusClassname}>
+            <section 
+                className={statusClassname} 
+                aria-live="polite"
+                role="status"
+            >
                 { generateStatusText() }
             </section>
 
             <section className="languages">{ languageEl }</section>
 
             <section className="letters">{ wordLetters }</section>
+
+            <section className="sr-only" aria-live="polite" role="status">
+                <p>
+                    {
+                        currentWord.split('').includes(guess[guess.length - 1]) ?
+                        `Great! the letter ${guess[guess.length - 1]} is in the word` :
+                        `Unfortunately, the letter ${guess[guess.length - 1]} is not in the word`
+                    }
+                    You have {languages.length - wrongGuessCount} attempts left.
+                </p>
+                <p>
+                    {
+                        `current word is ${currentWord.split('')
+                            .map(el => guess.includes(el) ? el + '.' : 'blank.')
+                            .join(' ')}`
+                    }
+                </p>
+            </section>
 
             <section className="keyboard">{ keyboard }</section>
 
