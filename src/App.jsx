@@ -65,7 +65,8 @@ export default function App() {
             <button 
                 key={el} 
                 className={classname}
-                onClick={!classname ? () => handleGuess(el) : null}
+                onClick={() => handleGuess(el)}
+                disabled={isGameOver}
             >
                 {el}
             </button>
@@ -99,6 +100,7 @@ export default function App() {
     }
 
     function handleGuess(value) {
+        console.log('event')
         setGuess(prev => prev.includes(value) ? prev : [...prev, value])
     }
 
