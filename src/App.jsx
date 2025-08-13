@@ -7,6 +7,13 @@ import { words } from './words'
 
 export default function App() {
 
+    /* 
+        to be determined:
+            - add remaining tries UI
+            - add animation like confetti but when losing
+            - set a timer that makes player losse if over
+    */
+
     const [currentWord, setCurrentWord] = useState(() => getRandomWord(words))
     const [guess, setGuess] = useState([])
 
