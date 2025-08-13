@@ -7,7 +7,7 @@ import { words } from './words'
 
 export default function App() {
 
-    const [currentWord, _] = useState(() => getRandomWord(words))
+    const [currentWord, setCurrentWord] = useState(() => getRandomWord(words))
     const [guess, setGuess] = useState([])
 
     const wrongGuessCount = guess.filter(el => !currentWord.split('').includes(el)).length
@@ -108,6 +108,7 @@ export default function App() {
 
     function playNewGame() {
         setGuess([])
+        setCurrentWord(() => getRandomWord(words))
     }
 
     function getRandomWord(wordsArr) {
