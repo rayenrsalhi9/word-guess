@@ -46,11 +46,17 @@ export default function App() {
         )
     })
 
-    const wordLetters = currentWord.split('').map((el, index) => (
-        <span key={index}>
-            { guess.includes(el) ? el : '' }
-        </span>
-    ))
+    const wordLetters = currentWord.split('').map((el, index) => {
+
+        const isMissed = !guess.includes(el)
+        const classname = clsx({ 'missed': isGameLost && isMissed })
+
+        return (
+            <span key={index} className={classname}>
+                { guess.includes(el) || (isGameOver && isMissed) ? el : '' }
+            </span>
+        )
+    })
 
     const alphabet = "abcdefghijklmnopqrstuvwxyz"
 
