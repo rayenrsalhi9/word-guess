@@ -3,10 +3,11 @@ import clsx from "clsx"
 import ReactConfetti from "react-confetti"
 import { languages } from "./languages"
 import { getFarewellText } from "./farewellMsgs"
+import { words } from './words'
 
 export default function App() {
 
-    const [currentWord, _] = useState('react')
+    const [currentWord, _] = useState(() => getRandomWord(words))
     const [guess, setGuess] = useState([])
 
     const wrongGuessCount = guess.filter(el => !currentWord.split('').includes(el)).length
@@ -107,6 +108,10 @@ export default function App() {
 
     function playNewGame() {
         setGuess([])
+    }
+
+    function getRandomWord(wordsArr) {
+        return wordsArr[Math.floor(Math.random() * wordsArr.length)]
     }
 
     return (
